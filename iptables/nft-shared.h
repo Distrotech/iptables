@@ -35,6 +35,7 @@
 #define FMT(tab,notab) ((format) & FMT_NOTABLE ? (notab) : (tab))
 
 struct xtables_args;
+struct xt_buf;
 
 struct nft_family_ops {
 	int (*add)(struct nft_rule *r, void *data);
@@ -57,6 +58,7 @@ struct nft_family_ops {
 	void (*parse_target)(struct xtables_target *t, void *data);
 	bool (*rule_find)(struct nft_family_ops *ops, struct nft_rule *r,
 			  void *data);
+	int (*xlate)(const void *data, struct xt_buf *buf);
 };
 
 void add_meta(struct nft_rule *r, uint32_t key);

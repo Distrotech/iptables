@@ -38,6 +38,7 @@ xtables_compat_multi_SOURCES += xtables-config-parser.y xtables-config-syntax.l
 xtables_compat_multi_SOURCES += xtables-save.c xtables-restore.c \
 				xtables-standalone.c xtables.c nft.c \
 				nft-shared.c nft-ipv4.c nft-ipv6.c nft-arp.c \
+				xtables-translate.c \
 				xtables-config.c xtables-events.c \
 				xtables-arp-standalone.c xtables-arp.c
 xtables_compat_multi_LDADD   += ${libmnl_LIBS} ${libnftnl_LIBS}
@@ -67,6 +68,8 @@ endif
 if ENABLE_NFTABLES
 x_sbin_links  = iptables-compat iptables-compat-restore iptables-compat-save \
 		ip6tables-compat ip6tables-compat-restore ip6tables-compat-save \
+		iptables-translate ip6tables-translate \
+		iptables-restore-translate ip6tables-restore-translate \
 		arptables-compat xtables-config xtables-events
 endif
 
